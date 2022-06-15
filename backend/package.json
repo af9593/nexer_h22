@@ -4,8 +4,17 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "start": "nodemon ./index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "Moustafa Allouhaibi",
-  "license": "MIT"
+  "author": "Nexer Group AB",
+  "license": "MIT",
+  "dependencies": {
+    "@google-cloud/vision": "^2.4.2",
+    "express": "^4.18.1",
+    "formidable": "^2.0.1"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.16"
+  }
 }
