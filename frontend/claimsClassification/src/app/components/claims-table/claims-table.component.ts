@@ -2,25 +2,19 @@ import { AfterViewInit, Component, OnInit, ViewChild } from '@angular/core';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
+import { Claim } from 'src/app/model/claim';
 
-export interface PeriodicElement {
-  name: string;
-  position: number;
-  weight: number;
-  symbol: string;
-}
-
-const ELEMENT_DATA: PeriodicElement[] = [
-  {position: 1, name: 'Hydrogen', weight: 1.0079, symbol: 'H'},
-  {position: 2, name: 'Helium', weight: 4.0026, symbol: 'He'},
-  {position: 3, name: 'Lithium', weight: 6.941, symbol: 'Li'},
-  {position: 4, name: 'Beryllium', weight: 9.0122, symbol: 'Be'},
-  {position: 5, name: 'Boron', weight: 10.811, symbol: 'B'},
-  {position: 6, name: 'Carbon', weight: 12.0107, symbol: 'C'},
-  {position: 7, name: 'Nitrogen', weight: 14.0067, symbol: 'N'},
-  {position: 8, name: 'Oxygen', weight: 15.9994, symbol: 'O'},
-  {position: 9, name: 'Fluorine', weight: 18.9984, symbol: 'F'},
-  {position: 10, name: 'Neon', weight: 20.1797, symbol: 'Ne'},
+const ELEMENT_DATA: Claim[] = [
+  {"id": 1, "category": "Strand och Bad", "description": "Det är mycket tång som flutit upp på starnden", "classification": 4},
+  {"id": 2, "category": "Belysning", "description": "Lucka på lyktstolpen är borta och sladdarna hänger ut", "classification": 1},
+  {"id": 3, "category": "Lekplatser", "description": "Någon har eldat upp gungan på lekplatsen", "classification": 3},
+  {"id": 4, "category": "Klotter", "description": "Någon har klottrat på elcentralen", "classification": 4},
+  {"id": 5, "category": "Park och Natur", "description": "Någon har haft en pickninck i parken och inte plockat upp efter sig", "classification": 3},
+  {"id": 6, "category": "Gator, gång och cykelvägar", "description": "Det ligger krossat glas på cykelbanan", "classification": 2},
+  {"id": 7, "category": "Trafik och parkering", "description": "En bil står parkerad så inte sopbilen kan komma till och tömma miljöhuset till fastigheten", "classification": 2},
+  {"id": 8, "category": "Hinder och tillgänglighet", "description": "Någon har slängt elscootrar på gångbanan", "classification": 1},
+  {"id": 9, "category": "Nedskräpning", "description": "Någon har ställt ett gammalt kylskåp vid Magnus Stenbocks staty", "classification": 2},
+  {"id": 10, "category": "Rökfria offentliga miljöer", "description": "Någon har rökt på toaletten på Knutpunkten", "classification": 3}  
 ];
 
 @Component({
@@ -29,7 +23,7 @@ const ELEMENT_DATA: PeriodicElement[] = [
   styleUrls: ['./claims-table.component.css']
 })
 export class ClaimsTableComponent implements OnInit, AfterViewInit {
-  displayedColumns: string[] = ['position', 'name', 'weight', 'symbol'];
+  displayedColumns: string[] = ['id', 'category', 'description', 'classification'];
   dataSource = new MatTableDataSource(ELEMENT_DATA);
 
   constructor() { }
@@ -37,8 +31,6 @@ export class ClaimsTableComponent implements OnInit, AfterViewInit {
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;
 
-  
-  
   ngAfterViewInit() {
     this.dataSource.paginator = this.paginator;
     this.dataSource.sort = this.sort;
