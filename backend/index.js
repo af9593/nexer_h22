@@ -1,6 +1,8 @@
 const express = require('express')
 const app = express()
 const port = 3000;
+var formidable = require('formidable');
+var fs = require('fs');
 
 const mimeTypes = {
 '.ico': 'image/x-icon',
@@ -31,7 +33,16 @@ const event = (req) => ({
     lat: req.body.location.lat 
   }
 })
-
+var form = new formidable.IncomingForm();
+//Spara bilden i resource mappen
+form.parse(req, function (err, fields, files) {
+  
+  var oldpath = files.filetoupload.filepath;
+  var newpath = './resources/' + files.filetoupload.originalFilename;
+  fs.rename(oldpath, newpath, function (err) {
+    if (err) throw err;
+  });
+})
 //Text Analys (Helsingborgsstad ML Engineers)
 //Bild Analys (GCP)
 //Skicka input vidare till ML 
@@ -49,4 +60,4 @@ app.get('/', function (req, res) {
 
 
 console.log("App listening on port: " + port);
-app.listen(port)
+app.listen(port);
