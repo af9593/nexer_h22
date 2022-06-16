@@ -17,10 +17,10 @@
   * Detta skulle kunna skickas iväg automatiskt med en validering från KC i efterhand.
 * NFC/QR-kod anmälningar utan feltyp får hanteras manuellt.
 * Anmälan med beskrivning och/eller bild så skickas bilden och beskrivningen på bildbehandling samt NLP för att få labels för att sätta prio, feltyp etc. för att automatiskt skicka ut till entreprenör vid hög prio. Detta får manuellt verifieras en period för att bedömma modellens träffsäkerhet.
-  * Vi har landat på en GCP-lösning då vi har en sandbox genom Nexer att använda. Bilden laddas upp och körs genom bildbehandling och texten körs genom texbehandling (NLP) och returnerar labels. Dessa körs sedan genom en ML för att:
+  * Vi har landat på en GCP-lösning då vi har en sandbox genom Nexer att använda. Bilden laddas upp och körs genom bildbehandling och texten körs genom texbehandling (NLP) och returnerar labels. Dessa körs sedan genom en ML-algoritm för att:
     * Prioritera
     * Sätta feltyp
-    * Sätta rätt område (park, väg & vatten, lekplatser etc.)
+    * Sätta rätt område (park, väg & vatten etc.)
     * Bestämma rätt entreprenör
       * Om hög träffsäkerhet skicka serviceärendet direkt. (Valideras i efterhand)
   * För att optimera detta krävs dock mer data och träning av modeller.
@@ -30,9 +30,7 @@
 ## Steg 4: Profit
 
 
-
-
-## Efterbehandling av data
+## Analysering av data
 Analysera alla felänmälningar för att kunna:
 * Förutse vilka områden där mer resurser krävs under vissa tidpunkter på året.
   * Är vissa områden mer utsatta än andra?
@@ -41,4 +39,4 @@ Analysera alla felänmälningar för att kunna:
 * Utvärdera entreprenörer
   * Hanteringstid av ärenden.
 * Utvärdera leverantörer om produkter från samma leverantör ofta går sönder.
-* 
+* Finns säkert mycket mer man kan använda denna datan till som vi inte kommer på i nuläget.
