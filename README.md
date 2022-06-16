@@ -24,7 +24,8 @@
     * Bestämma rätt entreprenör
       * Om hög träffsäkerhet skickas serviceärendet direkt. (Valideras i efterhand)
   * För att optimera detta krävs dock mer data och träning av modeller.
-  * Ett problem med lösningen är att vi i nuläget inte kan analysera svensk text.
+  * Ett problem med lösningen är att vi i nuläget inte kan analysera svensk text. 
+    * Detta är nog bara för vi kör en "out of the box"-lösning på GCP.
 
 ## Steg 3: ?????
 ## Steg 4: Profit
