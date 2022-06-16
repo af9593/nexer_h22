@@ -16,10 +16,10 @@ const textLabels = async (text) => {
 
     // Detects the sentiment of the text
     const [classification] = await client.classifyText({ document });
-    // console.log('Categories:');
-    // classification.categories.forEach(category => {
-    //   console.log(`Name: ${category.name}, Confidence: ${category.confidence}`);
-    // });
+    console.log('Categories:');
+    classification.categories.forEach(category => {
+      console.log(`Name: ${category.name}, Confidence: ${category.confidence}`);
+    });
  
     for (let i = 0; i < 4; i++) {
         if (!classification.categories[i]) {
@@ -27,8 +27,6 @@ const textLabels = async (text) => {
         }
         topCategories.push(classification.categories[i].name)
     }
-    console.log('Toppkategorier text:');
-    console.log(topCategories)
     return topCategories;
 }
 
@@ -42,9 +40,9 @@ const imageLabels = async (filePath) => {
     // Performs label detection on the image file
     const [result] = await client.labelDetection(filePath);
     const labels = result.labelAnnotations;
-    // console.log('Labels:');
-    // labels.forEach(label => console.log(label));
-    // labels.forEach(label => console.log(label.description));
+    console.log('Labels:');
+    labels.forEach(label => console.log(label));
+    labels.forEach(label => console.log(label.description));
     
     for (let i = 0; i < 4; i++) {
         if (!labels[i]) {
@@ -52,9 +50,6 @@ const imageLabels = async (filePath) => {
         }
         topLabels.push(labels[i].description)
     }
-
-    console.log('Toppkategorier bild:');
-    console.log(topLabels)
     return topLabels;
 }
 
