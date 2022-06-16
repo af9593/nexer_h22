@@ -6,7 +6,9 @@ const mockML = require( "./mockML" );
 
 var formidable = require('formidable');
 var fs = require('fs');
-var mv = require('mv');
+
+
+const path = require('path');
 
 const mimeTypes = {
 '.ico': 'image/x-icon',
@@ -43,18 +45,18 @@ form.parse(req, async (err, fields, files) => {
     imagePath: path
   })
   var oldpath = files.file.filepath;
-  var newpath = './resources/' + files.file.originalFilename;
-  
-  
-  await mv(oldpath, newpath, function (err) {
-    if (err) throw err;
-  });
+  var newpath = path.resolve("./resources/" + files.file.originalFilename)
+  var rawData = fs.readFileSync(oldpath)
 
-  
-  // let textLabels = await gcpService.textLabels(event(fields, newpath).text);
+  fs.writeFileSync(newpath, rawData, function(err){
+      if(err) console.log(err)
+      return res.send("Successfully uploaded")
+  })
+
   let imageLabels = await gcpService.imageLabels( event(fields, newpath).imagePath);
-  // console.log(textLabels);
+
   console.log(imageLabels);
+  return imageLabels;
 }) 
 
 

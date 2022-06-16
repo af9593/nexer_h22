@@ -36,10 +36,7 @@ const imageLabels = async (filePath) => {
     const vision = require('@google-cloud/vision');
     const client = new vision.ImageAnnotatorClient();
     const topLabels = []
-    filePath = filePath.slice(2)
-    console.log("fil path")
-    console.log(filePath)
-
+   
     // Performs label detection on the image file
     const [result] = await client.labelDetection(filePath);
     const labels = result.labelAnnotations;
