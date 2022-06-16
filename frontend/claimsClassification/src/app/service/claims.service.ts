@@ -12,7 +12,7 @@ export class ClaimsService {
         claims: Claim[]
     }
 
-    constructor(private http: HttpClient) {}
+    constructor(private http: HttpClient) {this.dataStore = { claims: [] };}
     
     loadAll(): Observable<Claim[]> {
         const claimsUrl = 'https://patrik1970.github.io/user-api/claims.json';
