@@ -2,8 +2,9 @@ export interface Claim {
     id: number;
     category: string;
     administration: string;
+    lable: string;
     description: string;
-    mltext: string;
-    mlimage: string;
+    lon: number;
+    lat: number;
     classification: number;
 }

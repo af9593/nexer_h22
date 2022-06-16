@@ -2,6 +2,11 @@
   padding: 10px;
 }
 
+.header-position {
+  display: flex;
+  justify-content: center;
+}
+
 table {
   width: 100%;
 }
@@ -11,9 +16,9 @@ table {
   width: 100%;
 }
   
-td, th {
+/*td, th {
   width: 25%;
-}
+}*/
 
 th.mat-sort-header-sorted {
   color: black;

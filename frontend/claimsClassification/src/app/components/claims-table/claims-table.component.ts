@@ -12,7 +12,7 @@ import { ClaimsService } from 'src/app/service/claims.service';
 })
 export class ClaimsTableComponent implements OnInit, AfterViewInit {
   claims: Claim[];
-  displayedColumns: string[] = ['id', 'category', 'administration', 'description', 'classification', 'mltext', 'mlimage'];
+  displayedColumns: string[] = ['id', 'category', 'administration', 'lable', 'description', 'lon', 'lat', 'classification'];
   dataSource: MatTableDataSource<Claim>;
 
   constructor(private claimsservice: ClaimsService,) { }
