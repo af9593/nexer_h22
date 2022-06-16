@@ -21,7 +21,7 @@ const textLabels = async (text) => {
       console.log(`Name: ${category.name}, Confidence: ${category.confidence}`);
     });
  
-    for (let i = 0; i < 4; i++) {
+    for (let i = 0; i < 5; i++) {
         if (!classification.categories[i]) {
         { break; }
         }
@@ -42,9 +42,9 @@ const imageLabels = async (filePath) => {
     const labels = result.labelAnnotations;
     console.log('Labels:');
     labels.forEach(label => console.log(label));
-    labels.forEach(label => console.log(label.description));
+    // labels.forEach(label => console.log(label.description));
     
-    for (let i = 0; i < 4; i++) {
+    for (let i = 0; i < 5; i++) {
         if (!labels[i]) {
             { break; }
         }
