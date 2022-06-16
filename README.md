@@ -32,7 +32,7 @@
 ## Steg 4: Profit
 
 ## Figma
-![Figma Länk](figma\figma_mockup.png)
+![Figma Länk](/figma/figma_mockup.png)
 
 ## Analysering av data
 Analysera alla felänmälningar för att kunna:
