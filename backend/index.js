@@ -1,6 +1,9 @@
 const express = require('express')
 const app = express()
 const port = 3000;
+const gcpService = require( "./gcp" );
+const mockML = require( "./mockML" );
+
 var formidable = require('formidable');
 var fs = require('fs');
 
@@ -25,24 +28,30 @@ app.use(express.urlencoded({extended: true}));
 
 app.post('/kundservice', async (req, res, next) => {
 console.log("Slår mot endpoint kundservice")
-const event = (req) => ({
-  label : req.body.label, 
-  text: req.body.text,
-  location: {
-    lon: req.body.location.lon,
-    lat: req.body.location.lat 
-  }
-})
+
 var form = new formidable.IncomingForm();
 //Spara bilden i resource mappen
-form.parse(req, function (err, fields, files) {
-  
+form.parse(req, async (err, fields, files) => {
+  const event = (fields, path) => ({
+    label : fields.label, 
+    text: fields.text,
+    location: {
+      lon: fields.lon,
+      lat: fields.lat 
+    },
+    imagePath: path
+  })
   var oldpath = files.filetoupload.filepath;
   var newpath = './resources/' + files.filetoupload.originalFilename;
   fs.rename(oldpath, newpath, function (err) {
     if (err) throw err;
   });
-})
+  
+  //let textLabels = await gcpService.textLabels(event(fields, newpath).label);
+  //let imageLabels = await gcpService.imageLabels( event(fields, newpath).imagePath);
+  //await mockML.process (textLabels, imageLabels)
+}) 
+
 //Text Analys (Helsingborgsstad ML Engineers)
 //Bild Analys (GCP)
 //Skicka input vidare till ML 
