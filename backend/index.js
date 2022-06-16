@@ -53,9 +53,7 @@ form.parse(req, async (err, fields, files) => {
       return res.send("Successfully uploaded")
   })
 
-  let imageLabels = await gcpService.imageLabels( event(fields, newpath).imagePath);
-
-  console.log(imageLabels);
+  const imageLabels = await gcpService.imageLabels( event(fields, newpath).imagePath);
   return imageLabels;
 }) 
 

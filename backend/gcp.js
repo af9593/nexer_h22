@@ -50,6 +50,7 @@ const imageLabels = async (filePath) => {
         }
         topLabels.push(labels[i].description)
     }
+    topLabels.forEach(topLabel => console.log(topLabel));
     return topLabels;
 }
 
