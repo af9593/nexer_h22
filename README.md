@@ -21,6 +21,7 @@
     * Prioritera
     * Sätta feltyp
     * Sätta rätt område (park, väg & vatten etc.)
+    * Om tillräckligt många objekt är fotade i staden finns större möjlghet att utvinna position från bilden om position fattas från formuläret.
     * Bestämma rätt entreprenör
       * Om hög träffsäkerhet skickas serviceärendet direkt. (Valideras i efterhand)
   * För att optimera detta krävs dock mer data och träning av modeller.
@@ -29,6 +30,10 @@
 
 ## Steg 3: ?????
 ## Steg 4: Profit
+
+## Figma
+*[Figma länk](https://www.figma.com/file/DSJ3b5kp1gJcTOzVlVNK9K/ett-b%C3%A4ttre-helsingborg?node-id=0%3A1)*
+![Figma bild](/figma/figma_mockup.png)
 
 
 ## Analysering av data
