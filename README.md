@@ -22,7 +22,7 @@
     * Sätta feltyp
     * Sätta rätt område (park, väg & vatten etc.)
     * Bestämma rätt entreprenör
-      * Om hög träffsäkerhet skicka serviceärendet direkt. (Valideras i efterhand)
+      * Om hög träffsäkerhet skickas serviceärendet direkt. (Valideras i efterhand)
   * För att optimera detta krävs dock mer data och träning av modeller.
   * Ett problem med lösningen är att vi i nuläget inte kan analysera svensk text.
 
