@@ -7,6 +7,7 @@ const mockML = require( "./mockML" );
 var formidable = require('formidable');
 var fs = require('fs');
 
+
 const mimeTypes = {
 '.ico': 'image/x-icon',
 '.html': 'text/html',
@@ -41,20 +42,21 @@ form.parse(req, async (err, fields, files) => {
     },
     imagePath: path
   })
-  var oldpath = files.filetoupload.filepath;
-  var newpath = './resources/' + files.filetoupload.originalFilename;
+  var oldpath = files.file.filepath;
+  var newpath = './resources/' + files.file.originalFilename;
+  
+  
   fs.rename(oldpath, newpath, function (err) {
     if (err) throw err;
   });
+
   
-  //let textLabels = await gcpService.textLabels(event(fields, newpath).label);
-  //let imageLabels = await gcpService.imageLabels( event(fields, newpath).imagePath);
-  //await mockML.process (textLabels, imageLabels)
+  let textLabels = await gcpService.textLabels(event(fields, newpath).text);
+  let imageLabels = await gcpService.imageLabels( event(fields, newpath).imagePath);
+  console.log(textLabels);
+  console.log(imageLabels);
 }) 
 
-//Text Analys (Helsingborgsstad ML Engineers)
-//Bild Analys (GCP)
-//Skicka input vidare till ML 
 
 let success = true; 
 
