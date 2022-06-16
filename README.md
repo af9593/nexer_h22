@@ -32,7 +32,9 @@
 ## Steg 4: Profit
 
 ## Figma
-![Figma Länk](/figma/figma_mockup.png)
+![Figma länk](https://www.figma.com/file/DSJ3b5kp1gJcTOzVlVNK9K/ett-b%C3%A4ttre-helsingborg?node-id=0%3A1)
+![Figma bild](/figma/figma_mockup.png)
+
 
 ## Analysering av data
 Analysera alla felänmälningar för att kunna:
